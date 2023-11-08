@@ -9,29 +9,29 @@
 
 class D3DFramework
 {
-	const std::wstring gClassName{ L"D3DWindowClass" };
-	const std::wstring gTitle{ L"Direct3D Example" };
+	const std::wstring CLASSNAME{ L"D3DWindowClass" };
+	const std::wstring TITLE{ L"Direct3D Example" };
 
 protected:
-	int gScreenWidth{ 800 };
-	int gScreenHeight{ 600 };
-	bool gMinimized{ false };
-	bool gMaximized{ false };
-	bool gResizing{ false };
+	int mScreenWidth{ 800 };
+	int mScreenHeight{ 600 };
+	bool mMinimized{ false };
+	bool mMaximized{ false };
+	bool mResizing{ false };
 
-	HWND gHwnd{};
-	HINSTANCE gInstance{};
+	HWND mHwnd{};
+	HINSTANCE mInstance{};
 
 	// Interface DirectX Graphics
-	Microsoft::WRL::ComPtr<IDXGISwapChain> gspSwapChain{};
-	Microsoft::WRL::ComPtr<ID3D11Device> gspDevice{};
-	Microsoft::WRL::ComPtr<ID3D11DeviceContext> gspDeviceContext{};
+	Microsoft::WRL::ComPtr<IDXGISwapChain> mspSwapChain{};
+	Microsoft::WRL::ComPtr<ID3D11Device> mspDevice{};
+	Microsoft::WRL::ComPtr<ID3D11DeviceContext> mspDeviceContext{};
 
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> gspRenderTarget{};
-	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> gspRenderTargetView{};
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> mspRenderTarget{};
+	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> mspRenderTargetView{};
 
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> gspDepthStencil{};
-	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> gspDepthStencilView{};
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> mspDepthStencil{};
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> mspDepthStencilView{};
 
 private:
 	void InitWindow(HINSTANCE hInstance);
@@ -40,11 +40,12 @@ private:
 protected:
 	void OnResize();
 	void RenderFrame();
-
+    virtual void Render();
 public:
 	virtual void Initialize(HINSTANCE hInstance, int width = 800, int height = 600);
-	virtual void DestroyD3D();
+	virtual void Destroy();
 	void GameLoop();
+	
 
 public:
 	LRESULT CALLBACK MessageHandler(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
