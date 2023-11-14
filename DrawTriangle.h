@@ -20,6 +20,9 @@ class DrawTriangle : public D3DFramework
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> mspTexture; // resource
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> mspTextureView;
 
+	Microsoft::WRL::ComPtr<ID3D11SamplerState> mspSamplerState;
+	Microsoft::WRL::ComPtr<ID3D11BlendState> mspBlendState;
+
 public:
 	void Initialize(HINSTANCE hInstance, int width = 800, int height = 600) override;
 	void Destroy() override;
