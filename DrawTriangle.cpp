@@ -196,6 +196,14 @@ HRESULT DrawTriangle::CreateTextureFromBMP()
 	return S_OK;
 }
 
+void DrawTriangle::Update(float delta)
+{
+	if (mInput.IsKeyDown(VK_SPACE))
+	{
+		OutputDebugStringW(L"스페이스\n");
+	}
+}
+
 void DrawTriangle::Render()
 {
 	UINT stride = sizeof(VERTEX);
