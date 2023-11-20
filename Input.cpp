@@ -9,7 +9,7 @@ namespace MyUtil
 	}
 	void Input::SetKeyDown(unsigned int key)
 	{
-		mKeys[key] = true;
+		mKeys[key] = true; 
 	}
 	void Input::SetKeyUp(unsigned int key)
 	{

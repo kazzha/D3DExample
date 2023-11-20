@@ -73,7 +73,7 @@ void Timer::Update()
 
 	mdDeltaTime = (mllCurrTime - mllPrevTime) * mdSecondsPerCount;
 
-	mllPrevTime - mllCurrTime;
+	mllPrevTime = mllCurrTime;
 
 	if (mdDeltaTime < 0.0)
 	{
